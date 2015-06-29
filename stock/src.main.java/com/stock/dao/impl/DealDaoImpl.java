@@ -26,7 +26,7 @@ public class DealDaoImpl extends BaseDaoImpl<Deal> implements DealDao{
 
 	@Override
 	public List<Deal> findByCodeAndDate(String code, Date date) {
-		String hql = "from Deal where code = ? and date = ?";
+		String hql = "from Deal where code = ? and DATE_FORMAT(date,'%Y-%m-%d') = DATE_FORMAT(?,'%Y-%m-%d')";
 		return this.findByHQL(hql, code, date);
 	}
 
