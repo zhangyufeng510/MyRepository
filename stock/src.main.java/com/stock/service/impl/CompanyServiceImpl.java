@@ -1,6 +1,8 @@
 package com.stock.service.impl;
 
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -36,5 +38,12 @@ public class CompanyServiceImpl extends BaseServiceImpl<Company> implements Comp
 	public int findCountByCodeAndName(String code, String name) {
 		
 		return companyDao.findCountByNameAndCode(code, name);
+	}
+
+	@Override
+	public List<Company> findAll() {
+		
+		List<Company> result = companyDao.findAll();
+		return result;
 	}
 }

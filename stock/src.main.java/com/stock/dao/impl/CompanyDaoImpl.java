@@ -1,6 +1,8 @@
 package com.stock.dao.impl;
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.stock.dao.CompanyDao;
@@ -16,6 +18,14 @@ public class CompanyDaoImpl extends BaseDaoImpl<Company> implements CompanyDao {
 		
 		return this.findCountByHQL(hql, code, name);
 		
+	}
+
+	@Override
+	public List<Company> findAll() {
+		
+		String hql = "from Company";
+		
+		return (List<Company>)this.findByHQL(hql);
 	}
 
 }

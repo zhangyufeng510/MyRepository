@@ -1,6 +1,8 @@
 package com.stock.service;
 
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,10 +64,17 @@ public class CompanyServiceTest {
 	}
 	
 	@Test
-	public void findByCodeAndName(){
+	public void findByCodeAndNameTest(){
 		
 		int result = companyService.findCountByCodeAndName("11113","中国银行");
 		System.out.println(result);
+	}
+	
+	@Test
+	public void findAllTest(){
+		
+		List<Company> result = companyService.findAll();
+		System.out.println(result.size());
 	}
 
 }
