@@ -19,7 +19,8 @@ public class DealDaoImpl extends BaseDaoImpl<Deal> implements DealDao{
 
 	@Override
 	public List<Deal> findByDateInterval(String code, Date start, Date end) {
-		String hql = "from Deal where code = ? and date >= ? and date <= ?";
+		String hql = "from Deal where code = ? and DATE_FORMAT(date,'%Y-%m-%d') >= DATE_FORMAT(?,'%Y-%m-%d') and  DATE_FORMAT(date,'%Y-%m-%d') <= DATE_FORMAT(?,'%Y-%m-%d')";
+		//String hql = "from Deal where code = ? and date >= ? and date <= ?";
 		return this.findByHQL(hql, code,start,end);
 	}
 

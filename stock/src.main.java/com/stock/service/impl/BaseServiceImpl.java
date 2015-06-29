@@ -36,6 +36,11 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	}
 
 	@Override
+	public void delete(T entity) {
+		baseDao.delete(entity);
+	}
+
+	@Override
 	public T findById(Serializable id) {
 		return baseDao.findById(id);
 	}
@@ -44,10 +49,4 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 	public List<T> findByHQL(String hql, Object... params) {
 		return baseDao.findByHQL(hql, params);
 	}
-
-	@Override
-	public void delete(T entity) {
-		baseDao.delete(entity);
-	}
-
 }

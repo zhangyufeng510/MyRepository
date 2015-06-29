@@ -1,5 +1,6 @@
 package com.stock.service.impl;
 
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -13,16 +14,27 @@ import com.stock.vo.Company;
 @Transactional
 public class CompanyServiceImpl extends BaseServiceImpl<Company> implements CompanyService{
 	
-	
 	private CompanyDao companyDao;
-
 	@Resource(name = "companyDao")
-	public void setCompanyDao(CompanyDao companyDao) {
+	public void setBaseDao(CompanyDao companyDao) {
 		super.setBaseDao(companyDao);
 		this.companyDao = companyDao;
 	}
-	
-	
 
-	
+//	@Override
+//	public void save(Company company){
+//		
+//		List<Company> result = companyDao.findByName(company.getName());
+//		
+//		if(result == null || result.size() == 0){
+//			
+//			companyDao.save(company);
+//		}
+//	}
+
+	@Override
+	public int findCountByCodeAndName(String code, String name) {
+		
+		return companyDao.findCountByNameAndCode(code, name);
+	}
 }

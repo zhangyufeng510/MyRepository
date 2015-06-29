@@ -1,7 +1,6 @@
 package com.stock.dao.impl;
 
 import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -48,6 +47,11 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 	}
 
 	@Override
+	public void delete(T entity) {
+		this.getSession().delete(entity);
+	};
+	
+	@Override
 	public T findById(Serializable id) {
 		return (T)this.getSession().get(this.clazz, id);
 	}
@@ -61,7 +65,11 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 		return query.list();
 	}
 	@Override
-	public void delete(T entity) {
-		 this.getSession().delete(entity);
+	public int findCountByHQL(String hql, Object... params) {
+		Query query = this.getSession().createQuery(hql);
+		for(int i = 0; params != null && i < params.length; i++){
+			query.setParameter(i, params[i]);
+		}
+		return Integer.parseInt(String.valueOf(query.uniqueResult()));
 	}
 }

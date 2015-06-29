@@ -2,6 +2,8 @@ package com.stock.vo;
 
 public class Company {
 	
+	private int companyId;
+	
 	private String code;
 	
 	private String name;
@@ -10,6 +12,14 @@ public class Company {
 
 	public String getCode() {
 		return code;
+	}
+
+	public int getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
 	}
 
 	public void setCode(String code) {

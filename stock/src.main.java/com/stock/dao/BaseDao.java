@@ -8,8 +8,8 @@ public interface BaseDao<T> {
 	public void save(T entity);
 	public void update(T entity);
 	public void delete(Serializable id);
+	public void delete(T entity);
 	public T findById(Serializable id);
 	public List<T> findByHQL(String hql, Object...params);
-	public void delete(T entity);
-
+	public int findCountByHQL(String hql, Object... params);
 }
