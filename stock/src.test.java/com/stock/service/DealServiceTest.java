@@ -24,7 +24,7 @@ public class DealServiceTest {
 	@Before
 	public void initDeal(){
 		deal = new Deal();
-		deal.setCode("1234哈哈");
+		deal.setCode("张玉凤哈哈");
 		deal.setCapitalization(4F);
 		deal.setClose(3F);
 		deal.setDate(new Date());
