@@ -28,6 +28,8 @@
         <property name="mappingLocations">
         	<list>
         		<value>classpath:com/stock/vo/stockMessage.hbm.xml</value>
+        		<value>classpath:com/stock/vo/deal.hbm.xml</value>
+        		<value>classpath:com/stock/vo/company.hbm.xml</value>
         	</list>
         </property>
         <property name="hibernateProperties">  
@@ -64,6 +66,7 @@
         <tx:attributes>
             <tx:method name="save*" propagation="REQUIRED" />
             <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="delete*" propagation="REQUIRED"/>
             <tx:method name="find*" read-only="true" />
         </tx:attributes>
     </tx:advice>
