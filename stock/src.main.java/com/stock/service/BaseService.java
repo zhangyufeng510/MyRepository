@@ -10,6 +10,6 @@ public interface BaseService<T> {
 	public void delete(T entity);
 	public void delete(Serializable id);
 	public T findById(Serializable id);
-	public List<T> findByHQL(String hql, Object... params);
+//	public List<T> findByHQL(String hql, Object... params);
 
 }

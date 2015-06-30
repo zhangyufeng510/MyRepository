@@ -46,4 +46,16 @@ public class CompanyServiceImpl extends BaseServiceImpl<Company> implements Comp
 		List<Company> result = companyDao.findAll();
 		return result;
 	}
+
+	@Override
+	public int findCountAll() {
+		
+		return companyDao.findCountAll();
+	}
+
+	@Override
+	public List<Company> findAllByPage(int pageNo, int pageSize) {
+		
+		return companyDao.findAllByPage(pageNo, pageSize);
+	}
 }

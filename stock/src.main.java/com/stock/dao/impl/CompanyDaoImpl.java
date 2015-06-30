@@ -28,4 +28,18 @@ public class CompanyDaoImpl extends BaseDaoImpl<Company> implements CompanyDao {
 		return (List<Company>)this.findByHQL(hql);
 	}
 
+	@Override
+	public int findCountAll() {
+		
+		String hql = "select count(*) from Company";
+		return findCountByHQL(hql);
+	}
+
+	@Override
+	public List<Company> findAllByPage(int pageNo, int pageSize) {
+		
+		String hql = "from Company";
+		return findPageByHQL(hql, pageNo, pageSize);
+	}
+	
 }

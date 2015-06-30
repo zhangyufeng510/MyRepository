@@ -76,5 +76,20 @@ public class CompanyServiceTest {
 		List<Company> result = companyService.findAll();
 		System.out.println(result.size());
 	}
+	
+	@Test
+	public void findCountAllTest(){
+		
+		int result = companyService.findCountAll();
+		System.out.println(result);
+	}
+	
+	@Test
+	public void findAllByPageTest(){
+		
+		List<Company> result = companyService.findAllByPage(2, 5);
+		
+		System.out.println(result.get(4).getName());
+	}
 
 }

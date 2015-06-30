@@ -45,8 +45,8 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 		return baseDao.findById(id);
 	}
 
-	@Override
-	public List<T> findByHQL(String hql, Object... params) {
-		return baseDao.findByHQL(hql, params);
-	}
+//	@Override
+//	public List<T> findByHQL(String hql, Object... params) {
+//		return baseDao.findByHQL(hql, params);
+//	}
 }

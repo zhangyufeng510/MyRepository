@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 
 
+
 import com.stock.dao.BaseDao;
 import com.stock.utils.GenericsUtils;
 
@@ -71,5 +72,16 @@ public class BaseDaoImpl<T> implements BaseDao<T>{
 			query.setParameter(i, params[i]);
 		}
 		return Integer.parseInt(String.valueOf(query.uniqueResult()));
+	}
+	@Override
+	public List<T> findPageByHQL(String hql, int pageNo, int pageSize, Object... params) {
+		
+		Query query = this.getSession().createQuery(hql);
+		for(int i = 0; params != null && i < params.length; i++){
+			query.setParameter(i, params[i]);
+		}
+		query.setFirstResult((pageNo-1)*pageSize);
+		query.setMaxResults(pageSize);
+		return query.list();
 	}
 }

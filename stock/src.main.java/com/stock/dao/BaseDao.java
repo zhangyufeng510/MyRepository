@@ -12,4 +12,5 @@ public interface BaseDao<T> {
 	public T findById(Serializable id);
 	public List<T> findByHQL(String hql, Object...params);
 	public int findCountByHQL(String hql, Object... params);
+	public List<T> findPageByHQL(String hql, int pageNo, int pageSize, Object... params);
 }
